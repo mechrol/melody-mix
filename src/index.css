@@ -1,0 +1,205 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+:root {
+  /* Default theme (dark) */
+  --color-background: #121212;
+  --color-surface: #181818;
+  --color-surfaceHighlight: #282828;
+  --color-primary: #1DB954;
+  --color-secondary: #b3b3b3;
+  --color-text: #FFFFFF;
+  --color-textSecondary: #b3b3b3;
+  --color-border: #333333;
+  --color-error: #f44336;
+  --color-success: #4caf50;
+  
+  /* Animation speeds */
+  --transition-fast: 0.15s;
+  --transition-normal: 0.25s;
+  --transition-slow: 0.4s;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  background-color: var(--color-background);
+  color: var(--color-text);
+  transition: background-color var(--transition-normal) ease;
+}
+
+/* Theme-based utility classes */
+.bg-app {
+  background-color: var(--color-background);
+  transition: background-color var(--transition-normal) ease;
+}
+
+.bg-surface {
+  background-color: var(--color-surface);
+  transition: background-color var(--transition-normal) ease;
+}
+
+.bg-surface-highlight {
+  background-color: var(--color-surfaceHighlight);
+  transition: background-color var(--transition-normal) ease;
+}
+
+.bg-primary {
+  background-color: var(--color-primary);
+  transition: background-color var(--transition-normal) ease;
+}
+
+.text-primary {
+  color: var(--color-primary);
+  transition: color var(--transition-normal) ease;
+}
+
+.text-secondary {
+  color: var(--color-secondary);
+  transition: color var(--transition-normal) ease;
+}
+
+.border-theme {
+  border-color: var(--color-border);
+  transition: border-color var(--transition-normal) ease;
+}
+
+/* Custom scrollbar */
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-surfaceHighlight) var(--color-background);
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: var(--color-background);
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: var(--color-surfaceHighlight);
+  border-radius: 4px;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease forwards;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.5s ease forwards;
+}
+
+.animate-pulse {
+  animation: pulse 2s infinite;
+}
+
+/* Card hover effects */
+.card-hover {
+  transition: transform var(--transition-fast) ease, 
+              background-color var(--transition-fast) ease,
+              box-shadow var(--transition-fast) ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-4px);
+  background-color: var(--color-surfaceHighlight);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Button styles */
+.btn-primary {
+  background-color: var(--color-primary);
+  color: white;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  border-radius: 9999px;
+  transition: all var(--transition-fast) ease;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  filter: brightness(1.1);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--color-text);
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  border-radius: 9999px;
+  transition: all var(--transition-fast) ease;
+  border: 1px solid var(--color-border);
+  cursor: pointer;
+}
+
+.btn-secondary:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: var(--color-text);
+}
+
+/* Input styles */
+.input-theme {
+  background-color: var(--color-background);
+  border: 1px solid var(--color-border);
+  color: var(--color-text);
+  padding: 0.75rem 1rem;
+  border-radius: 4px;
+  transition: all var(--transition-fast) ease;
+}
+
+.input-theme:focus {
+  border-color: var(--color-primary);
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(29, 185, 84, 0.25);
+}
+
+/* Gradient backgrounds */
+.gradient-overlay {
+  background: linear-gradient(180deg, rgba(0,0,0,0) 0%, var(--color-background) 100%);
+}
+
+.gradient-text {
+  background: linear-gradient(90deg, var(--color-primary), #88f3be);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  display: inline-block;
+}
+
+/* Glassmorphism */
+.glass-effect {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}

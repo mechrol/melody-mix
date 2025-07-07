@@ -1,1 +1,1 @@
-# melody-mix
+# joe-music-melody-app
